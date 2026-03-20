@@ -1,0 +1,102 @@
+# =========================
+# .NET / Visual Studio
+# =========================
+.vs/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]nyCPU/
+[Aa]nyCpu/
+[Aa]rchive/
+[Ll]ogs/
+
+# Visual Studio user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# MSBuild / NuGet
+*.nuget.props
+*.nuget.targets
+project.assets.json
+project.nuget.cache
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Rider / IntelliJ
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# =========================
+# ASP.NET Core / Local settings
+# =========================
+# Si usas secretos locales o configuraciones por ambiente no versionables
+appsettings.*.local.json
+
+# Logs y archivos temporales
+*.tmp
+*.temp
+
+# =========================
+# EF Core / Migrations (opcional)
+# =========================
+# NOTA:
+# - En la mayoría de proyectos SÍ se versionan las migraciones.
+# - Dejo estas líneas comentadas por defecto.
+# Descomenta si NO quieres versionar migraciones.
+# **/Migrations/
+# **/Migrations/*.cs
+# **/Migrations/*.Designer.cs
+# **/Migrations/*.resx
+
+# =========================
+# OS-specific
+# =========================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =========================
+# Test / Coverage (si aplica)
+# =========================
+TestResults/
+*.trx
+coverage/
+coverage.xml
+*.coverage
+*.coveragexml
+
+# =========================
+# Docker / Containers (si aplica)
+# =========================
+docker-compose.override.yml
