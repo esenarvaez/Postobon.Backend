@@ -7,6 +7,7 @@ using AutoMapper;
 using ExpenseApproval.Application.Common.Exceptions;
 using ExpenseApproval.Application.DTOs;
 using ExpenseApproval.Application.Interfaces;
+using ExpenseApproval.Domain.Entities;
 using ExpenseApproval.Domain.Enums;
 using FluentValidation;
 using FluentValidation.Results;
@@ -70,7 +71,7 @@ namespace ExpenseApproval.Application.Services
         {
             await ValidateOrThrowAsync(_createValidator, dto, ct);
 
-            var entity = _mapper.Map<Domain.Entities.ExpenseRequest>(dto);
+            var entity = _mapper.Map<ExpenseRequest>(dto);
             entity.Id = Guid.NewGuid();
             entity.Status = RequestStatus.Pending;
             entity.CreatedAtUtc = DateTime.UtcNow;
@@ -108,7 +109,7 @@ namespace ExpenseApproval.Application.Services
                 throw new BusinessRuleException("Solo se puede rechazar una solicitud en estado Pendiente.");
 
             entity.Status = RequestStatus.Rejected;
-            entity.DecisionAtUtc = DateTime.UtcNow; // requerido
+            entity.DecisionAtUtc = DateTime.UtcNow;
             entity.DecisionBy = dto.DecisionBy;
             entity.RejectionReason = dto.Reason;
 
@@ -128,7 +129,7 @@ namespace ExpenseApproval.Application.Services
             if (entity.Status != RequestStatus.Pending)
                 throw new BusinessRuleException("Solo se puede editar una solicitud en estado Pendiente.");
 
-            // Map updates
+            
             entity.Category = dto.Category;
             entity.Description = dto.Description;
             entity.Value = dto.Value;
